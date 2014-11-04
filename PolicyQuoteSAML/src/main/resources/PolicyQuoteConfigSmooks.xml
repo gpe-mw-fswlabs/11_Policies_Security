@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><smooks-resource-list xmlns="http://www.milyn.org/xsd/smooks-1.1.xsd" xmlns:jb="http://www.milyn.org/xsd/smooks/javabean-1.2.xsd">
+  <params>
+    <param name="stream.filter.type">SAX</param>
+    <param name="inputType">input.xml</param>
+  </params>
+  <jb:bean beanId="policyquote" class="org.acme.insurance.policyquote.domain.PolicyQuote" createOnElement="//policyQuote">
+    <jb:value data="//policyQuote/age" decoder="Integer" property="age"/>
+    <jb:value data="//policyQuote/creditScore" decoder="Integer" property="creditScore"/>
+    <jb:value data="//policyQuote/dlNumber" property="dlNumber"/>
+    <jb:value data="//policyQuote/driverName" property="driverName"/>
+    <jb:value data="//policyQuote/numberOfAccidents" decoder="Integer" property="numberOfAccidents"/>
+    <jb:value data="//policyQuote/numberOfTickets" decoder="Integer" property="numberOfTickets"/>
+    <jb:value data="//policyQuote/vehicleYear" decoder="Integer" property="vehicleYear"/>
+    <jb:value data="//policyQuote/price" decoder="Integer" property="price"/>
+    <jb:value data="//policyQuote/ssn" property="ssn"/>
+    <jb:value data="//policyQuote/policyType" property="policyType"/>
+  </jb:bean>
+</smooks-resource-list>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="PolicyQuoteEntityWSService" targetNamespace="http://insurance.acme.org/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://insurance.acme.org/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <xs:schema targetNamespace="http://insurance.acme.org/" version="1.0" xmlns:tns="http://insurance.acme.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="createPolicyQuote" type="tns:createPolicyQuote"/>
+   <xs:element name="createPolicyQuoteResponse" type="tns:createPolicyQuoteResponse"/>
+   <xs:element name="deletePolicyQuote" type="tns:deletePolicyQuote"/>
+   <xs:element name="getPolicyQuote" type="tns:getPolicyQuote"/>
+   <xs:element name="getPolicyQuoteResponse" type="tns:getPolicyQuoteResponse"/>
+   <xs:complexType name="createPolicyQuote">
+    <xs:sequence>
+     <xs:element minOccurs="0" name="policyQuote" type="tns:policyQuote"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="policyQuote">
+    <xs:sequence>
+     <xs:element minOccurs="0" name="age" type="xs:int"/>
+     <xs:element minOccurs="0" name="creditScore" type="xs:int"/>
+     <xs:element minOccurs="0" name="dlNumber" type="xs:string"/>
+     <xs:element minOccurs="0" name="driverName" type="xs:string"/>
+     <xs:element minOccurs="0" name="numberOfAccidents" type="xs:int"/>
+     <xs:element minOccurs="0" name="numberOfTickets" type="xs:int"/>
+     <xs:element name="policyQuoteID" type="xs:long"/>
+     <xs:element minOccurs="0" name="policyType" type="xs:string"/>
+     <xs:element name="price" type="xs:int"/>
+     <xs:element minOccurs="0" name="requestDate" type="xs:dateTime"/>
+     <xs:element minOccurs="0" name="ssn" type="xs:string"/>
+     <xs:element name="vehicleYear" type="xs:int"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="createPolicyQuoteResponse">
+    <xs:sequence>
+     <xs:element minOccurs="0" name="policyQuote" type="tns:policyQuote"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getPolicyQuote">
+    <xs:sequence>
+     <xs:element minOccurs="0" name="policyQuote" type="tns:policyQuote"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="getPolicyQuoteResponse">
+    <xs:sequence>
+     <xs:element minOccurs="0" name="policyQuoteEntity" type="tns:policyQuote"/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="deletePolicyQuote">
+    <xs:sequence>
+     <xs:element minOccurs="0" name="policyQuote" type="tns:policyQuote"/>
+    </xs:sequence>
+   </xs:complexType>
+  </xs:schema>
+  </types>
+  <message name="PolicyQuoteEntityWS_createPolicyQuoteResponse">
+    <part name="createPolicyQuoteResponse" element="tns:createPolicyQuoteResponse">
+    </part>
+  </message>
+  <message name="PolicyQuoteEntityWS_createPolicyQuote">
+    <part name="createPolicyQuote" element="tns:createPolicyQuote">
+    </part>
+  </message>
+  <message name="PolicyQuoteEntityWS_deletePolicyQuote">
+    <part name="deletePolicyQuote" element="tns:deletePolicyQuote">
+    </part>
+  </message>
+  <message name="PolicyQuoteEntityWS_getPolicyQuote">
+    <part name="getPolicyQuote" element="tns:getPolicyQuote">
+    </part>
+  </message>
+  <message name="PolicyQuoteEntityWS_getPolicyQuoteResponse">
+    <part name="getPolicyQuoteResponse" element="tns:getPolicyQuoteResponse">
+    </part>
+  </message>
+  <portType name="PolicyQuoteEntityWS">
+    <operation name="createPolicyQuote" parameterOrder="createPolicyQuote">
+      <input message="tns:PolicyQuoteEntityWS_createPolicyQuote">
+    </input>
+      <output message="tns:PolicyQuoteEntityWS_createPolicyQuoteResponse">
+    </output>
+    </operation>
+    <operation name="deletePolicyQuote">
+      <input message="tns:PolicyQuoteEntityWS_deletePolicyQuote">
+    </input>
+    </operation>
+    <operation name="getPolicyQuote" parameterOrder="getPolicyQuote">
+      <input message="tns:PolicyQuoteEntityWS_getPolicyQuote">
+    </input>
+      <output message="tns:PolicyQuoteEntityWS_getPolicyQuoteResponse">
+    </output>
+    </operation>
+  </portType>
+  <binding name="PolicyQuoteEntityWSBinding" type="tns:PolicyQuoteEntityWS">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="createPolicyQuote">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="deletePolicyQuote">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+    </operation>
+    <operation name="getPolicyQuote">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PolicyQuoteEntityWSService">
+    <port name="PolicyQuoteEntityWSPort" binding="tns:PolicyQuoteEntityWSBinding">
+      <soap:address location="http://127.0.0.1:8080/PolicyQuoteEntitySLSBEAR-PolicyQuoteEntitySLSB/PolicyQuoteEntityWS"/>
+    </port>
+  </service>
+</definitions>
